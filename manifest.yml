@@ -4,5 +4,7 @@ applications:
   path: build/libs/pal-tracker.jar
   memory: 768M
   instances: 1
+  services:
+  - tracker-database
   env:
     WELCOME_MESSAGE: "Hello from Cloud Foundry"
