@@ -3,6 +3,6 @@ applications:
 - name: pal-tracker-vr
   path: build/libs/pal-tracker.jar
   memory: 768M
-  instances: 2
+  instances: 1
   env:
     WELCOME_MESSAGE: "Hello from Cloud Foundry"
