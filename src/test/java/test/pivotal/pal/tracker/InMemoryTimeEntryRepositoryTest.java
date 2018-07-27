@@ -17,10 +17,8 @@ public class InMemoryTimeEntryRepositoryTest {
         TimeEntry createdTimeEntry = repo.create(new TimeEntry(123L, 456L, LocalDate.parse("2017-01-08"), 8));
 
         TimeEntry expected = new TimeEntry(1L, 123L, 456L, LocalDate.parse("2017-01-08"), 8);
-        assertThat(createdTimeEntry).isEqualTo(expected);
+        assertThat(createdTimeEntry).isEqualToComparingFieldByField(expected);
 
-        TimeEntry readEntry = repo.find(createdTimeEntry.getId());
-        assertThat(readEntry).isEqualTo(expected);
     }
 
     @Test
@@ -30,7 +28,7 @@ public class InMemoryTimeEntryRepositoryTest {
 
         TimeEntry expected = new TimeEntry(1L, 123L, 456L, LocalDate.parse("2017-01-08"), 8);
         TimeEntry readEntry = repo.find(1L);
-        assertThat(readEntry).isEqualTo(expected);
+        assertThat(readEntry).isEqualToComparingFieldByField(expected);
     }
 
     @Test

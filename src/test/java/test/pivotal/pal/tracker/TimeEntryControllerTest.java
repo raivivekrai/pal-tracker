@@ -35,9 +35,7 @@ public class TimeEntryControllerTest {
             .when(timeEntryRepository)
             .create(any(TimeEntry.class));
 
-
         ResponseEntity response = controller.create(timeEntryToCreate);
-
 
         verify(timeEntryRepository).create(timeEntryToCreate);
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.CREATED);
@@ -103,7 +101,7 @@ public class TimeEntryControllerTest {
             .when(timeEntryRepository)
             .update(eq(1L), any(TimeEntry.class));
 
-        ResponseEntity response = controller.update(1L, new TimeEntry());
+        ResponseEntity response = controller.update(1L, new TimeEntry(1L, 123L, 456L, LocalDate.parse("2017-01-08"), 8));
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.NOT_FOUND);
     }
 
